@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Break time dance</title>
+    <link rel="stylesheet" href="vibe.css">
+</head>
+<body>
+    <div class="z">
+    <button class="a" onclick="location.href='#home'">
+        HOME
+    </button>
+    <button class="b" onclick="window.location.href='exercises.html'">
+        EXERCISES
+    </button>
+    <button class="c" onclick="location.href='#Info'">
+INFO
+    </button>
+    <input type="text" placeholder="Search"  class="j">
+    </div>
+    <br>
+   
+    <br><br><br>
+    <div class="slider-container">
+  <div class="side left">
+    <img src="https://i.pinimg.com/736x/35/b6/ec/35b6ecee757436a35efe0312df56ea75.jpg" alt="Left image" class="left1">
+    <img src="https://i.pinimg.com/736x/97/fc/14/97fc14982bfa47f3b4d1912be4544b43.jpg" alt="Left image" class="left2">
+  </div>
+    <div class="slider" id="home" >
+  <div class="slides">
+    <div class="slide">
+    <img src="https://gpdpnqxhgrrew6zggsqx.c.websim.com/sybau.jpg" alt="Photo 1" class="b1"></div>
+    <div class="slide">
+    <img src="https://preview.redd.it/origin-to-the-sybau-reaction-image-v0-d6a7p24zx9af1.jpg?width=640&crop=smart&auto=webp&s=b450d9fc763fec01e320c05a4e864e41f560be56" alt="Photo 2" class="b2"></div>
+    <div class="slide">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrFiI-X_KlMbrm6Vrw9uDKRO5qH_sr_fJHvA&s" alt="Photo 3" class="b3"></div>
+    <div class="slide">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0ydI0BnSsNqHhpA7git_j92p8pQQ-A42NUQ&s" alt="Photo 4" class="b4"></div>
+  </div>
+</div>
+  <div class="side right">
+    <img src="https://i.pinimg.com/736x/02/93/30/02933070a830ee2fdd246d46024b0d6d.jpg" alt="Right image" class="right1">
+    <img src="https://i.pinimg.com/736x/87/cd/db/87cddbde751037d5891760bcf6c208aa.jpg" alt="Right image" class="right2">
+  </div>
+</div>
+    <br>
+    <br>
+    <br id="a1">
+    <br>
+    <div class="content" >
+    <img src="https://i.pinimg.com/1200x/dd/95/5a/dd955aa264d68b74f5a8e2c034375b2e.jpg" alt="" class="rots" >
+    <div class="wdiv light-border">
+      <h1>Зорилго</h1>
+    <p class="w hidden">
+Зорилго: Сурагчдыг хөдөлгөөний дутагдлаас сэргийлж, идэвхтэй дасгал хөдөлгөөн хийлгэж хэвшүүлэх.
+    </p>
+  </div>
+    </div>
+    <br id="a2">
+    <div class="hi">
+      <div class="ddiv light-border">
+        <h2>Ойлголт</h2>
+       <p class="d hidden">
+Ойлголт: Сурагчдыг өглөөний дасгал болон 10 минутын завсарлагаагаар идэвхтэй дасгал хийлгүүлж сургах мөн энэхүү төслийн хүрээнд вэбсайт хийх юм. Вэбсайт дотроо дасгалын сан болон сануулах, санах ойтой бөгөөд энэ сурагчдын бие бялдарт тохирсон дасгалыг хийлгүүлж сургах юм.
+        </p>
+      </div>
+        <img src="https://i.pinimg.com/1200x/a7/cd/98/a7cd98f4071d49361c4dc17f5f4bea35.jpg" alt="" class="most" >
+    </div>
+    <br id="a3">
+    <div class="r">
+        <img src="https://i.pinimg.com/1200x/7a/b2/2f/7ab22f643fa1bc3c3f28046fe9d9a118.jpg" alt="" class="ss" >
+        <div class="pdiv light-border">
+          <h3>Ач тус</h3>
+        <p class="p hidden">
+Ач тус: Сурагчдыг хөдөлгөөний дутагдлаас сэргийлснээр эрүүл мэнд, өсөлтийг дэмжих ач холбогдолтой.
+        </p>
+</div>
+    </div>
+    <div id="Info" class="e">
+        <p>
+            
+        </p>
+    <p>
+        Tsonjin Boarding School
+    </p>
+    <p>
+        Class 9-1
+    </p>
+<p>
+    2025
+</p>
+<img src="https://tsonjincybercity.com/assets/logo_blue-B4fiGNCo.png" alt="">
+    </div>
+  <script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');  
+      }
+    });
+  });
+
+  const hiddenElements = document.querySelectorAll('.hidden');
+  hiddenElements.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
