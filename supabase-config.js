@@ -1,0 +1,3 @@
+const supabaseUrl = 'postgresql://postgres:[YOUR_PASSWORD]@db.oczivddwxmgjygzqfnxv.supabase.co:5432/postgres'
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9jeml2ZGR3eG1nanlnenFmbnh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjIzMjMyMzUsImV4cCI6MjA3Nzg5OTIzNX0.daHVzk8k9v8i2FGycnoqHR-Vh0_QoFjiW_ZyRP1CxdQ'
+const supabase = supabase.createClient(supabaseUrl, supabaseKey)

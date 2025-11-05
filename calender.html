@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calendar Page</title>
+<link rel="stylesheet" href="calender.css">
+</head>
+<body>
+
+<!-- ===== TOP BAR ===== -->
+<div class="z">
+  <button class="a" onclick="location.href='vibe.html'">HOME</button>
+  <button class="b" onclick="window.location.href='exercises.html'">LIBRARY</button>
+  <button class="c" onclick="window.location.href='info.html'"
+  >INFO</button>
+</div>
+
+<!-- ===== CALENDAR WITH SIDE IMAGES ===== -->
+<div class="calendar-container">
+  <img src="https://i.redd.it/i-got-bored-so-i-decided-to-draw-a-random-image-on-the-v0-4ig97vv85vjb1.png?width=1280&format=png&auto=webp&s=7177756d1f393b6e093596d06e1ba539f723264b" alt="Left Image" class="side-img">
+  <div class="calendar" id="calendar"></div>
+  <img src="https://media.pitchfork.com/photos/63f641d801dbe796fab80055/master/pass/Daft-Punk-Random-Access-Memories.jpg" alt="Right Image" class="side-img">
+</div>
+
+<script>
+// ===== CALENDAR LOGIC + STREAK SYSTEM =====
+const calendar = document.getElementById('calendar');
+const today = new Date();
+const year = today.getFullYear();
+const month = today.getMonth();
+const day = today.getDate();
+
+// Load data
+let visitedDays = JSON.parse(localStorage.getItem('visitedDays')) || [];
+let streak = JSON.parse(localStorage.getItem('streak')) || 0;
+let lastVisit = localStorage.getItem('lastVisit');
+
+// Format date YYYY-MM-DD
+const todayString = `${year}-${month + 1}-${day}`;
+
+// ===== CHECK STREAK =====
+if (lastVisit) {
+  const lastDate = new Date(lastVisit);
+  const diffDays = Math.floor((today - lastDate) / (1000 * 60 * 60 * 24));
+
+  if (diffDays === 1) {
+    streak++;
+  } else if (diffDays > 1) {
+    streak = 1;
+  }
+} else {
+  streak = 1;
+}
+
+// Save updated streak and date
+localStorage.setItem('streak', streak);
+localStorage.setItem('lastVisit', today);
+
+// Add today's date to visited list
+if (!visitedDays.includes(todayString)) {
+  visitedDays.push(todayString);
+  localStorage.setItem('visitedDays', JSON.stringify(visitedDays));
+}
+
+// ===== BUILD CALENDAR =====
+const daysInMonth = new Date(year, month + 1, 0).getDate();
+for (let i = 1; i <= daysInMonth; i++) {
+  const dayDiv = document.createElement('div');
+  dayDiv.classList.add('day');
+  dayDiv.textContent = i;
+
+  const dateString = `${year}-${month + 1}-${i}`;
+  if (visitedDays.includes(dateString)) {
+    dayDiv.classList.add('active');
+  }
+
+  calendar.appendChild(dayDiv);
+}
+
+// ===== STREAK POPUP =====
+if (streak > 0) {
+  const streakPopup = document.createElement('div');
+  streakPopup.classList.add('streak-popup');
+  streakPopup.textContent = `🔥 Good job! You have a ${streak}-day streak!`;
+  document.body.appendChild(streakPopup);
+
+  setTimeout(() => {
+    streakPopup.classList.add('show');
+  }, 200);
+
+  setTimeout(() => {
+    streakPopup.classList.remove('show');
+  }, 4000);
+}
+</script>
+
+</body>
+</html>

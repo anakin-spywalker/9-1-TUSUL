@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PE+ Login</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="parent">
+<div class="div1"> 
+<div class="welcome">
+    <p>WELCOME TO</p>
+    <h1>
+        PE+
+    </h1>
+    <p>
+        where you can find a library full of amazing exercises
+    </p>
+    <img src="" alt="">
+</div>
+</div>
+<div class="div2"> 
+<div class="container">
+    <div class="tabs">
+      <button id="loginTab" class="active">Login</button>
+      <button id="signupTab" onclick="">Sign Up</button>
+    </div>
+    <form id="loginForm" class="active">
+      <h3>Login</h3>
+      <input type="text" placeholder="Username" required>
+      <input type="password" placeholder="Password" required>
+      <button type="submit" class="submit" onclick="window.location.href='vibe.html'">Login</button>
+    </form>
+    <form id="signupForm">  
+      <h3>Sign Up</h3>
+      <input type="text" placeholder="Username" required>
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Password" required>
+      <button type="submit" class="submit" >Sign Up</button>
+    </form>
+    <img src="https://cdn.prod.website-files.com/64a24a477b774d01d169b819/64bdf8b29d97ed63eb92c022_Intro%20(story)%201.png" alt="">
+  </div>
+</div>
+</div>
+<script src="backend.js">
+</script>
+</body>
+</html>
