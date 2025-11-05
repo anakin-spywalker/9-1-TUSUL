@@ -1,78 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="exercises.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercise Video Library</title>
+  <link rel="stylesheet" href="exercises.css" />
 </head>
 <body>
-<div class="parent">
-<div class="div1"> 
-<button>
-<img src="https://i.pinimg.com/736x/e9/fe/fd/e9fefd7616a45b512deafd1305567da3.jpg" alt="">
-</button>
-</div>
-<div class="div2"> 
-<button>
-<img src="https://i.pinimg.com/736x/98/24/7b/98247b6b75876d3d4dae3df1a7b83dde.jpg" alt="">
-</button>
-</div>
-<div class="div3"> 
-<button>
-<img src="https://i.pinimg.com/736x/55/05/22/550522a540c8122476efcbb033a5a650.jpg" alt="">
-</button>
-</div>
-<div class="div4">
-    <button>
-<img src="https://i.pinimg.com/1200x/b8/e6/48/b8e64861040d0951e6b45589eef47976.jpg" alt="">
-    </button>
-     </div>
-<div class="div5"> 
-<button>
 
-</button>
-</div>
-<div class="div6">
-    <button>
+  <!-- ===== HEADER ===== -->
+  <header>
+    <h1>Exercise Video Library</h1>
+    <input type="text" id="searchBar" placeholder="Search for a workout...">
+  <div class="filters">
+    <button class="filter-btn active" data-category="all">All</button>
+    <button class="filter-btn" data-category="min5">5 min</button>
+    <button class="filter-btn" data-category="min10">10 min</button>
+    <button class="filter-btn" data-category="min15">15 min</button>
+    <button onclick="location.href='vibe.html'" class="filter-btn">GO BACK</button>
+  </div>
+  </header>
 
-    </button>
-     </div>
-<div class="div7"> 
-<button>
+  <!-- ===== CATEGORY FILTERS ===== -->
 
-</button>
-</div>
-<div class="div8"> 
-<button>
 
-</button>
-</div>
-<div class="div9">
-    <button>
+  <!-- ===== VIDEO GALLERY ===== -->
+  <section id="videoGallery" class="gallery">
+    <!-- Example Cards -->
+    <div class="video-card" data-category="min5">
+      <img src="https://images.genius.com/94280650e3ad76b3d33cfe62a42ed2b0.1000x1000x1.png" alt="Cardio Workout">
+      <h3>PRIDE</h3>
+      <a href="https://www.youtube.com/watch?v=IN0CAapgP0E&list=RDIN0CAapgP0E&start_radio=1&pp=ygUFUFJJREWgBwHSBwkJBgoBhyohjO8%3D" target="_blank">Listen</a>
+    </div>
+    <div class="video-card" data-category="min10">
+      <img src="https://i.ytimg.com/vi/pFptt7Cargc/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLB7wNBqfF1duyuYVrh0CeehBKmykg">
+      <h3>Let It Happen</h3>
+      <a href="https://www.youtube.com/watch?v=pFptt7Cargc&list=RDpFptt7Cargc&start_radio=1&pp=ygUNbGV0IGl0IGhhcHBlbqAHAQ%3D%3D" target="_blank">Listen</a>
+    </div>
 
-    </button>
-     </div>
-<div class="div10">
-    <button>
+    <div class="video-card" data-category="min15">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLhbnN6uAbAx5VCh_miN09WM4vy2JeD1oIsQ&s" alt="Yoga Flow">
+      <h3>Every Living Breathing Moment</h3>
+      <a href="https://www.youtube.com/watch?v=g5pw0uC5V88&list=RDg5pw0uC5V88&start_radio=1&pp=ygUdZXZlcnkgbGl2aW5nIGJyZWF0aGluZyBtb21lbnSgBwE%3D" target="_blank">Listen</a>
+    </div>
 
-    </button>
-     </div>
-<div class="div11">
-    <button>
+    <div class="video-card" data-category="min5">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-ORdGHiYkg10QOrTlymDdEoj2yGGLgfef0Q&s" alt="HIIT Workout">
+      <h3>I Wonder</h3>
+      <a href="https://www.youtube.com/watch?v=xyfoyugCB8Y&list=RDxyfoyugCB8Y&start_radio=1&pp=ygUIaSB3b25kZXKgBwHSBwkJBgoBhyohjO8%3D" target="_blank">Listen</a>
+    </div>
 
-    </button>
-     </div>
-<div class="div12"> 
-<button>
+    <div class="video-card" data-category="min10">
+      <img src="https://img.youtube.com/vi/2tM1LFFxeKg/0.jpg" alt="Bodyweight Strength">
+      <h3>No Equipment Strength</h3>
+      <a href="https://www.youtube.com/watch?v=2tM1LFFxeKg" target="_blank">Watch</a>
+    </div>
 
-</button>
-</div>
-<div class="div13"> 
-<button>
+    <div class="video-card" data-category="min15">
+      <img src="https://img.youtube.com/vi/4pKly2JojMw/0.jpg" alt="Stretch Yoga">
+      <h3>Evening Relax Yoga</h3>
+      <a href="https://www.youtube.com/watch?v=4pKly2JojMw" target="_blank">Watch</a>
+    </div>
+  </section>
 
-</button>
-</div>
-</div>
+  <script src="exercises.js"></script>
 </body>
 </html>
