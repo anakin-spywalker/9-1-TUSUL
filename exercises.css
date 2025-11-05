@@ -1,0 +1,111 @@
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  margin: 0;
+  background: rgb(36, 36, 36);
+  color: #fff;
+}
+header {
+    position: relative;
+  text-align: center;
+  padding: 20px 100px;
+  background: #1c1c1c center/cover no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  height: 500px;
+  margin: 0;
+  overflow: hidden;
+
+}
+header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px; 
+  background: linear-gradient(to bottom, transparent, rgb(36, 36, 36));
+  pointer-events: none;
+}
+header h1 {
+  margin-bottom: 10px;
+  font-size: 2em;
+  color: #66fcf1;
+}
+#searchBar {
+  padding: 10px;
+  width: 80%;
+  max-width: 500px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
+.filters {
+  text-align: center;
+  margin: 20px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+}
+.filter-btn {
+  background: #45a29e;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.filter-btn.active, .filter-btn:hover {
+  background: #66fcf1;
+  color: #000;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+.video-card {
+  background: #1f2833;
+  border-radius: 15px;
+  overflow: hidden;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.video-card img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+.video-card:hover {
+  transform: scale(1.05);
+}
+
+.video-card h3 {
+  padding: 10px;
+  font-size: 1.1em;
+  color: #66fcf1;
+}
+
+.video-card a {
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 8px 15px;
+  background: #45a29e;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.video-card a:hover {
+  background: #66fcf1;
+  color: #000;
+}

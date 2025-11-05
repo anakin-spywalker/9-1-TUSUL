@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercise Video Library</title>
+  <link rel="stylesheet" href="exercises.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <h1>Exercise Video Library</h1>
+    <input type="text" id="searchBar" placeholder="Search for a workout...">
+  <div class="filters">
+    <button class="filter-btn active" data-category="all">All</button>
+    <button class="filter-btn" data-category="min5">5 min</button>
+    <button class="filter-btn" data-category="min10">10 min</button>
+    <button class="filter-btn" data-category="min15">15 min</button>
+    <button onclick="location.href='vibe.html'" class="filter-btn">GO BACK</button>
+  </div>
+  </header>
+
+  <!-- ===== CATEGORY FILTERS ===== -->
+
+
+  <!-- ===== VIDEO GALLERY ===== -->
+  <section id="videoGallery" class="gallery">
+    <!-- Example Cards -->
+    <div class="video-card" data-category="min5">
+      <img src="https://images.genius.com/94280650e3ad76b3d33cfe62a42ed2b0.1000x1000x1.png" alt="Cardio Workout">
+      <h3>PRIDE</h3>
+      <a href="https://www.youtube.com/watch?v=IN0CAapgP0E&list=RDIN0CAapgP0E&start_radio=1&pp=ygUFUFJJREWgBwHSBwkJBgoBhyohjO8%3D" target="_blank">Listen</a>
+    </div>
+    <div class="video-card" data-category="min10">
+      <img src="https://i.ytimg.com/vi/pFptt7Cargc/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLB7wNBqfF1duyuYVrh0CeehBKmykg">
+      <h3>Let It Happen</h3>
+      <a href="https://www.youtube.com/watch?v=pFptt7Cargc&list=RDpFptt7Cargc&start_radio=1&pp=ygUNbGV0IGl0IGhhcHBlbqAHAQ%3D%3D" target="_blank">Listen</a>
+    </div>
+
+    <div class="video-card" data-category="min15">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLhbnN6uAbAx5VCh_miN09WM4vy2JeD1oIsQ&s" alt="Yoga Flow">
+      <h3>Every Living Breathing Moment</h3>
+      <a href="https://www.youtube.com/watch?v=g5pw0uC5V88&list=RDg5pw0uC5V88&start_radio=1&pp=ygUdZXZlcnkgbGl2aW5nIGJyZWF0aGluZyBtb21lbnSgBwE%3D" target="_blank">Listen</a>
+    </div>
+
+    <div class="video-card" data-category="min5">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-ORdGHiYkg10QOrTlymDdEoj2yGGLgfef0Q&s" alt="HIIT Workout">
+      <h3>I Wonder</h3>
+      <a href="https://www.youtube.com/watch?v=xyfoyugCB8Y&list=RDxyfoyugCB8Y&start_radio=1&pp=ygUIaSB3b25kZXKgBwHSBwkJBgoBhyohjO8%3D" target="_blank">Listen</a>
+    </div>
+
+    <div class="video-card" data-category="min10">
+      <img src="https://img.youtube.com/vi/2tM1LFFxeKg/0.jpg" alt="Bodyweight Strength">
+      <h3>No Equipment Strength</h3>
+      <a href="https://www.youtube.com/watch?v=2tM1LFFxeKg" target="_blank">Watch</a>
+    </div>
+
+    <div class="video-card" data-category="min15">
+      <img src="https://img.youtube.com/vi/4pKly2JojMw/0.jpg" alt="Stretch Yoga">
+      <h3>Evening Relax Yoga</h3>
+      <a href="https://www.youtube.com/watch?v=4pKly2JojMw" target="_blank">Watch</a>
+    </div>
+  </section>
+
+  <script src="exercises.js"></script>
+</body>
+</html>
