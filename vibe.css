@@ -1,24 +1,43 @@
 
 body{
-background: #02abed;
-background: linear-gradient(90deg, rgba(2, 171, 237, 1) 0%, rgba(87, 199, 133, 1) 46%, rgba(151, 0, 232, 1) 100%);
-    color: rgb(0, 0, 0);
+background-color: 3, 97, 249;
+background-color: rgb(36, 36, 36);
+background-size: cover;
+background-repeat: no-repeat;
+    color: rgb(41, 41, 41);
     margin: 0%;
     padding: 0%;
-    font-family: 'Noto Sans Mongolian', sans-serif;
+    font-family: ' ', sans-serif;
     text-size-adjust: 200px;
+    overflow-x: hidden;
+}
+@media (min-width: 768px) {
+  .button-64 {
+    font-size: 24px;
+    min-width: 196px;
+  }
 }
 .slider-container {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 20px; 
-  gap: 20px;        
+  gap: 20px;       
+}
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .side {
   display: flex;
   flex-direction: column;
-  gap: 10px; 
+  gap: 10px;
 }
 .side img {
   width: 120px;     
@@ -32,6 +51,10 @@ background: linear-gradient(90deg, rgba(2, 171, 237, 1) 0%, rgba(87, 199, 133, 1
   overflow: hidden;
   margin: auto;
   border-radius: 20px;
+  animation: slideDown 2s ease-out;
+  opacity: 0; 
+  transform: translateY(-50px); 
+  animation-fill-mode: forwards; 
 }
 .slides {
   display: flex;  
@@ -46,9 +69,6 @@ background: linear-gradient(90deg, rgba(2, 171, 237, 1) 0%, rgba(87, 199, 133, 1
   flex: 0 0 100%;
   height: 500px;
 }
-
-
-
 @keyframes slideAnimation {
   0%   { transform: translateX(0%); }
   25%  { transform: translateX(0%); }
@@ -62,28 +82,39 @@ background: linear-gradient(90deg, rgba(2, 171, 237, 1) 0%, rgba(87, 199, 133, 1
   80%  { transform: translateX(-300%); }
   100% { transform: translateX(-300%); }
 }
-.a,.b,.c{
-    margin-left: 20px;
-    margin-top: 0%;
-    color: aliceblue;
-    background-color: black;
-    border: 100px;
-    border-color: black;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.a,.b,.c,.q{
+ background-color: #1c1c1c;
+  color: white;
+  border: none;
+  margin: 0 10px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.z button:hover {
+  background-color: #555;
 }
 .z {
-    background-color: black;
+    background-color: #1c1c1c;
     width: 100%;
-    padding: 25px;
+    padding: 10px;
 margin: 0px;
 position: fixed;
  cursor: pointer;
     transition: background-color 0.3s ease;
     z-index: 10000;
+      animation: slideDown 1s ease-out;
+  opacity: 0; 
+  transform: translateY(-50px); 
+  animation-fill-mode: forwards; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 }
-
-
 .rots{
     height: 396px;
     width: 500px; 
@@ -95,26 +126,29 @@ position: fixed;
 .most{
   border-radius: 30px;
     height: 396px;
-    width: 500px; 
+    width: 620px; 
     display: flex;
     align-items: center;
-    justify-content: center;}
+    justify-content: center;
+  }
 .content,.hi,.r{
   gap: 40px;
     display: flex;
     align-items: center;
     justify-content: center;             
-    padding: 40px;
+    padding: 20px;
     flex-wrap: wrap
 }
-
+.content,.hi,.r:hover{
+    size: 1000px;
+}
 .d,.w,.p{
   padding-left:50px ;
     margin: 50px;
     font-size: 20px;
 }
 .ss{
-    height: 396px;
+    height: 500px;
     width: 500px; 
     display: flex;
     align-items: center;
@@ -122,14 +156,12 @@ position: fixed;
     justify-content: center;
     border-radius: 30px;
 }
-.c{
-    padding-right: 250px;
-}
-.j{
-    size: 20px;
-    border-radius: 30px;
-    border: none;
-    width: 300px;
+.z .j {
+  margin-left: 20px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
 }
 .e{
     text-align: center;
@@ -186,7 +218,6 @@ p {
    text-align: left;
    padding: 10px;
 }
-
 @keyframes upDown {
   0%, 100% {
     transform: translateY(0);
@@ -209,11 +240,11 @@ p {
   width: 400px; 
   padding: 0px; 
   margin: 50px; 
- background: #38abd9;
-background: linear-gradient(90deg, rgba(56, 171, 217, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(83, 237, 88, 1) 100%);
-border-color: rgb(106, 0, 255);
+ background: hsl(30, 88%, 51%);
+background: linear-gradient(90deg, rgb(120, 194, 255) 0%, rgb(109, 0, 252) 50%, rgb(0, 145, 255) 100%);
+border-color: none;
 border-width: 4px;
-border:rgb(106, 0, 255) ;
+border:none ;
 border-style: solid;
 border-radius: 20px
 }
@@ -226,4 +257,73 @@ h2{
 h3{
 text-align: center;
 }
-
+.left1,.left2,.right1,.right2{
+  width: 300px;     
+  height: 300px;   
+  border-radius: 10px;
+  object-fit: cover;
+}
+.left1{
+  animation: slideLeft 2.3s ease-out;
+  opacity: 0; 
+  transform: translateY(50px); 
+  animation-fill-mode: forwards; 
+}
+@keyframes slideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.left2{
+  animation: slideLeft 3.5s ease-out;
+  opacity: 0; 
+  transform: translateY(-50px); 
+  animation-fill-mode: forwards; 
+}
+@keyframes slideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.right1{
+  animation: slideRight 2.3s ease-out;
+  opacity: 0; 
+  transform: translateY(-50px); 
+  animation-fill-mode: forwards; 
+}
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.right2{
+  animation: slideRight 3.5s ease-out;
+  opacity: 0; 
+  transform: translateY(-50px); 
+  animation-fill-mode: forwards; 
+}
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
