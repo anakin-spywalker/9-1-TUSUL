@@ -8,19 +8,28 @@
 </head>
 <body>
 
-<!-- ===== TOP BAR ===== -->
-<div class="z">
-  <button class="a" onclick="location.href='vibe.html'">HOME</button>
-  <button class="b" onclick="window.location.href='exercises.html'">LIBRARY</button>
-  <button class="c" onclick="window.location.href='info.html'"
-  >INFO</button>
-</div>
+    <div class="z"> 
+    <button class="a" onclick="window.location.href='vibe.html'">
+        Home
+    </button>
+    <button class="b" onclick="window.location.href='exercises.html'">
+        Library
+    </button>
+    <button class="c" onclick="location.href='info.html'">
+Info
+    </button>
+    <button class="q" onclick="location.href='calender.html'">
+      Calendar
+    </button>
+    <button class="t" onclick="location.href='pherapyteam.html'">
+      Pherapy
+    </button>
+    </div>
 
-<!-- ===== CALENDAR WITH SIDE IMAGES ===== -->
 <div class="calendar-container">
-  <img src="https://i.redd.it/i-got-bored-so-i-decided-to-draw-a-random-image-on-the-v0-4ig97vv85vjb1.png?width=1280&format=png&auto=webp&s=7177756d1f393b6e093596d06e1ba539f723264b" alt="Left Image" class="side-img">
-  <div class="calendar" id="calendar"></div>
-  <img src="https://media.pitchfork.com/photos/63f641d801dbe796fab80055/master/pass/Daft-Punk-Random-Access-Memories.jpg" alt="Right Image" class="side-img">
+  <img src="https://i.redd.it/i-got-bored-so-i-decided-to-draw-a-random-image-on-the-v0-4ig97vv85vjb1.png?width=1280&format=png&auto=webp&s=7177756d1f393b6e093596d06e1ba539f723264b" alt="Left Image" class="side-img light-border">
+  <div class="calendar light-border" id="calendar"></div>
+  <img src="https://media.pitchfork.com/photos/63f641d801dbe796fab80055/master/pass/Daft-Punk-Random-Access-Memories.jpg" alt="Right Image" class="side-img light-border">
 </div>
 
 <script>
@@ -35,27 +44,42 @@ const day = today.getDate();
 let visitedDays = JSON.parse(localStorage.getItem('visitedDays')) || [];
 let streak = JSON.parse(localStorage.getItem('streak')) || 0;
 let lastVisit = localStorage.getItem('lastVisit');
-
-// Format date YYYY-MM-DD
 const todayString = `${year}-${month + 1}-${day}`;
-
-// ===== CHECK STREAK =====
 if (lastVisit) {
   const lastDate = new Date(lastVisit);
   const diffDays = Math.floor((today - lastDate) / (1000 * 60 * 60 * 24));
 
-  if (diffDays === 1) {
-    streak++;
-  } else if (diffDays > 1) {
-    streak = 1;
+  // Check if today is a continuation of the streak
+  // This logic is slightly improved to check against today's date
+  const yesterday = new Date(today);
+  yesterday.setDate(today.getDate() - 1);
+  const yesterdayString = `${yesterday.getFullYear()}-${yesterday.getMonth() + 1}-${yesterday.getDate()}`;
+  
+  const lastVisitDate = new Date(lastVisit);
+  const lastVisitString = `${lastVisitDate.getFullYear()}-${lastVisitDate.getMonth() + 1}-${lastVisitDate.getDate()}`;
+
+  if (lastVisitString === yesterdayString && !visitedDays.includes(todayString)) {
+      // Last visit was yesterday, and today is not yet marked
+      streak++;
+  } else if (lastVisitString !== todayString) {
+      // If the last visit was not today, and not yesterday, reset to 1 (if visited today)
+      if (diffDays > 1) {
+          streak = 1;
+      }
   }
+
 } else {
+  // First time visiting or no previous data
   streak = 1;
 }
 
 // Save updated streak and date
+// Only update lastVisit if today is a new visit
+if (!visitedDays.includes(todayString)) {
+  localStorage.setItem('lastVisit', today);
+}
 localStorage.setItem('streak', streak);
-localStorage.setItem('lastVisit', today);
+
 
 // Add today's date to visited list
 if (!visitedDays.includes(todayString)) {
@@ -64,15 +88,52 @@ if (!visitedDays.includes(todayString)) {
 }
 
 // ===== BUILD CALENDAR =====
+// Get the current month name for display
+const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+// Header for the month and year
+const monthHeader = document.createElement('div');
+monthHeader.classList.add('month-header');
+monthHeader.innerHTML = `<h2>${monthNames[month]} ${year}</h2>`;
+calendar.appendChild(monthHeader);
+
+// Day names row
+const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const dayNamesRow = document.createElement('div');
+dayNamesRow.classList.add('day-names');
+dayNames.forEach(name => {
+  const nameDiv = document.createElement('div');
+  nameDiv.textContent = name;
+  dayNamesRow.appendChild(nameDiv);
+});
+calendar.appendChild(dayNamesRow);
+
+
+// Start day of the month (0=Sunday, 6=Saturday)
+const firstDayOfMonth = new Date(year, month, 1).getDay();
 const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+// Fill in preceding empty days
+for (let i = 0; i < firstDayOfMonth; i++) {
+  const emptyDiv = document.createElement('div');
+  emptyDiv.classList.add('day', 'empty');
+  calendar.appendChild(emptyDiv);
+}
+
+// Fill in days
 for (let i = 1; i <= daysInMonth; i++) {
   const dayDiv = document.createElement('div');
   dayDiv.classList.add('day');
   dayDiv.textContent = i;
 
   const dateString = `${year}-${month + 1}-${i}`;
+  
   if (visitedDays.includes(dateString)) {
     dayDiv.classList.add('active');
+  }
+
+  if (i === day) {
+      dayDiv.classList.add('current-day');
   }
 
   calendar.appendChild(dayDiv);
@@ -82,7 +143,7 @@ for (let i = 1; i <= daysInMonth; i++) {
 if (streak > 0) {
   const streakPopup = document.createElement('div');
   streakPopup.classList.add('streak-popup');
-  streakPopup.textContent = `🔥 Good job! You have a ${streak}-day streak!`;
+  streakPopup.innerHTML = `🔥 Good job! You have a **${streak}-day streak!**`;
   document.body.appendChild(streakPopup);
 
   setTimeout(() => {
