@@ -58,7 +58,7 @@ Info
     <img src="https://abc.duolingo.com/static/media/home-footer.719733d6b2979b1768a642ade76510a5.svg" alt="" class="rots" >
     <div class="wdiv light-border">
       <h1>Зорилго</h1>
-    <p class="w hidden">
+    <p class="w">
 Зорилго: Сурагчдыг хөдөлгөөний дутагдлаас сэргийлж, идэвхтэй дасгал хөдөлгөөн хийлгэж хэвшүүлэх.
     </p>
   </div>
@@ -67,7 +67,7 @@ Info
     <div class="hi">
       <div class="ddiv light-border">
         <h2>Ойлголт</h2>
-       <p class="d hidden">
+       <p class="d">
 Ойлголт: Сурагчдыг өглөөний дасгал болон 10 минутын завсарлагаагаар идэвхтэй дасгал хийлгүүлж сургах мөн энэхүү төслийн хүрээнд вэбсайт хийх юм. Вэбсайт дотроо дасгалын сан болон сануулах, санах ойтой бөгөөд энэ сурагчдын бие бялдарт тохирсон дасгалыг хийлгүүлж сургах юм.
         </p>
       </div>
@@ -76,24 +76,14 @@ Info
     <br id="a3">
     <div class="r">
         <img src="https://i0.wp.com/sereneluna.net/wp-content/uploads/2024/06/img_3781-1.png?resize=546%2C546&ssl=1" alt="" class="ss" >
-        <div class="pdiv light-border">
+        <div class="pdiv">
           <h3>Ач тус</h3>
-        <p class="p hidden">
+        <p class="p ">
 Ач тус: Сурагчдыг хөдөлгөөний дутагдлаас сэргийлснээр эрүүл мэнд, өсөлтийг дэмжих ач холбогдолтой.
         </p>
 </div>
     </div>
   <script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');  
-      }
-    });
-  });
-
-  const hiddenElements = document.querySelectorAll('.hidden');
-  hiddenElements.forEach(el => observer.observe(el));
 </script>
 
 </body>
