@@ -1,139 +1,198 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* BASE STYLES from vibe.css */
 body {
-  background-color: #0f0f0f;
-  font-family: Arial, sans-serif;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    background-color: #f0fff0;
+    color: rgb(41, 41, 41);
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+/* This is a new utility class for consistent borders */
+.light-border {
+    border: 4px solid #00c853;
+    border-radius: 20px;
+}
+
+/* NAVBAR from vibe.css */
 .z {
-  width: 100%;
-  background-color: #1c1c1c;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    background-color: white;
+    width: 100%;
+    padding: 10px;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    z-index: 10000;
+    top: 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
-.z button {
-  background-color: #222;
-  color: white;
-  border: none;
-  margin: 0 10px;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
+/* NAV BUTTONS from vibe.css */
+.a, .b, .c, .q, .t {
+    background-color: #00c853;
+    color: white;
+    border: none;
+    margin: 0 10px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
 }
-
 .z button:hover {
-  background-color: #555;
-}
-
-.z .j {
-  margin-left: 20px;
-  padding: 8px 12px;
-  border-radius: 8px;
-  border: none;
-  outline: none;
+    background-color: #009c40;
 }
 
 /* === CALENDAR CONTAINER === */
 .calendar-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 100px;
-  width: 100%;
-  gap: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Adjust margin to account for fixed navbar */
+    margin-top: 100px;
+    width: 100%;
+    gap: 20px;
+    padding: 20px;
 }
 
-/* === SIDE IMAGES === */
+/* === SIDE IMAGES === (Adapted from side image styling in vibe.css) */
 .side-img {
-  width: 200px;
-  height: auto;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(255,255,255,0.1);
-  object-fit: cover;
+    width: 200px;
+    height: 300px; /* Set a fixed height for better visual balance */
+    border-radius: 20px;
+    object-fit: cover;
+    transition: .3s;
 }
 
-/* === CALENDAR GRID === */
+/* === CALENDAR GRID === (Used white background with green border) */
 .calendar {
-  display: grid;
-  grid-template-columns: repeat(7, 60px);
-  gap: 10px;
-  background-color: #1a1a1a;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 0 20px rgba(255,255,255,0.05);
+    display: grid;
+    grid-template-columns: repeat(7, 60px);
+    gap: 5px;
+    background-color: white;
+    padding: 20px;
+    /* Border is now applied via .light-border class in HTML */
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    width: fit-content;
+}
+
+/* Calendar header for Month/Year */
+.month-header {
+    grid-column: 1 / -1; /* Span across all 7 columns */
+    text-align: center;
+    color: #00a844; /* Consistent heading color */
+    margin-bottom: 10px;
+}
+.month-header h2 {
+    margin: 0;
+}
+
+/* Day names row (Sun, Mon, etc.) */
+.day-names {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(7, 60px);
+    gap: 5px;
+    text-align: center;
+    font-weight: bold;
+    color: #00a844;
+    margin-bottom: 10px;
 }
 
 /* === DAY STYLES === */
 .day {
-  width: 60px;
-  height: 60px;
-  background-color: #292929;
-  color: #ddd;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
+    width: 60px;
+    height: 60px;
+    background-color: #f0fff0; /* Light background for non-active days */
+    color: #00a844;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.day:hover {
-  background-color: #444;
+.day.empty {
+    background-color: transparent;
+    cursor: default;
+}
+
+/* Active Day Hover */
+.day:not(.empty):hover {
+    background-color: #e0f8e0;
 }
 
 /* === ACTIVE (VISITED) DAYS === */
 .day.active {
-  background-color: #00ff88;
-  color: black;
+    background-color: #00c853;
+    color: white;
+    transform: scale(1.05);
+}
+.day.active:hover {
+    background-color: #009c40;
 }
 
-/* === STREAK POPUP === */
+/* Highlight for the current day of the month */
+.day.current-day {
+    border: 3px solid #00a844;
+    box-shadow: 0 0 10px rgba(0, 168, 68, 0.5);
+}
+
+
+/* === STREAK POPUP === (Styled with the green theme) */
 .streak-popup {
-  position: fixed;
-  top: 80px;
-  right: 30px;
-  background-color: #00ff88;
-  color: #000;
-  padding: 15px 25px;
-  border-radius: 10px;
-  font-weight: bold;
-  font-size: 16px;
-  box-shadow: 0 0 20px rgba(0,255,136,0.3);
-  opacity: 0;
-  transform: translateY(-20px);
-  transition: all 0.5s ease;
-  z-index: 9999;
+    position: fixed;
+    top: 80px;
+    right: 30px;
+    background-color: #00c853;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    box-shadow: 0 4px 15px rgba(0, 200, 83, 0.5);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.5s ease;
+    z-index: 9999;
 }
 
 .streak-popup.show {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* === RESPONSIVE === */
 @media (max-width: 900px) {
-  .calendar-container {
-    flex-direction: column;
-  }
-
-  .side-img {
-    width: 80%;
-  }
+    .calendar-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .side-img {
+        width: 80%;
+        height: auto;
+    }
+}
+@media (max-width: 500px) {
+    .calendar {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 2px;
+        padding: 10px;
+        width: 95%;
+    }
+    .day, .day-names > div {
+        width: 100%;
+        height: 40px;
+        font-size: 12px;
+    }
+    .z button {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
 }
